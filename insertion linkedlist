@@ -1,0 +1,55 @@
+//  Node class for the linked list
+class Node {
+    int data; 
+    Node next; 
+
+    Node(int data) {
+        this.data = data;
+        this.next = null;
+    }
+}
+
+class LinkedList {
+    Node head; 
+
+    // Method to insert a new node at the beginning
+    void insertAtBeginning(int newData) {
+        Node newNode = new Node(newData);
+        newNode.next = head;
+        head = newNode;
+    }
+
+    // Method to search for an element
+    boolean search(int key) {
+        Node current = head;
+        while (current != null) {
+            if (current.data == key) {
+                return true; // Found the element
+            }
+            current = current.next;
+        }
+        return false; // Element not found
+    }
+}
+
+// Main class to demonstrate the linked list functionality
+public class insertionlinked {
+    public static void main(String[] args) {
+        LinkedList list = new LinkedList();
+
+        // Insert elements
+        list.insertAtBeginning(3);
+        list.insertAtBeginning(2);
+        list.insertAtBeginning(1);
+        list.insertAtBeginning(4);
+        list.insertAtBeginning(5);
+
+        // Search for an element
+        int searchKey = 3;
+        if (list.search(searchKey)) {
+            System.out.println(searchKey + " is found in the list.");
+        } else {
+            System.out.println(searchKey + " is not found in the list.");
+        }
+    }
+}
